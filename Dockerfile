@@ -48,8 +48,10 @@ RUN mv $SQOOP_HOME/conf/sqoop-env-template.sh $SQOOP_HOME/conf/sqoop-env.sh
 RUN echo "export HADOOP_COMMON_HOME=/hadoop-3.3.1" >> $SQOOP_HOME/conf/sqoop-env.sh
 RUN echo "export HADOOP_MAPRED_HOME=/hadoop-3.3.1" >> $SQOOP_HOME/conf/sqoop-env.sh
 
-COPY init.sh /
+# Copy required files to the image.
+COPY init.sh create_user.sql /
 
-RUN chmod 700 ./bootstrap.sh
+# Set permissions to execute scripts files.
+RUN chmod 700 ./bootstrap.sh ./create_user.sql
 
 CMD [ "bash", "./init.sh" ]
