@@ -7,6 +7,7 @@ WORKDIR /
 
 # Install required dependencies & remove apt cache.
 RUN apt-get update && apt-get install -y \
+    unzip \
     mysql-server \
     && rm -rf /var/lib/apt/lists/*
 
