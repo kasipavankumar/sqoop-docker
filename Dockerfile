@@ -7,6 +7,7 @@ WORKDIR /
 
 # Install required dependencies & remove apt cache.
 RUN apt-get update && apt-get install -y \
+    unzip \
     mysql-server \
     && rm -rf /var/lib/apt/lists/*
 
@@ -35,6 +36,11 @@ RUN wget https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-la
 # Move it to Sqoop's lib
 RUN mv commons-lang-2.6.jar $SQOOP_HOME/lib
 
+# Download & unzip a sample database.
+# https://dev.mysql.com/doc/employee/en/employees-installation.html
+RUN wget https://github.com/datacharmer/test_db/archive/refs/heads/master.zip \
+    && unzip master.zip
+
 # Rename sqoop-env-template.sh → sqoop-env.sh
 RUN mv $SQOOP_HOME/conf/sqoop-env-template.sh $SQOOP_HOME/conf/sqoop-env.sh
 
@@ -42,8 +48,10 @@ RUN mv $SQOOP_HOME/conf/sqoop-env-template.sh $SQOOP_HOME/conf/sqoop-env.sh
 RUN echo "export HADOOP_COMMON_HOME=/hadoop-3.3.1" >> $SQOOP_HOME/conf/sqoop-env.sh
 RUN echo "export HADOOP_MAPRED_HOME=/hadoop-3.3.1" >> $SQOOP_HOME/conf/sqoop-env.sh
 
-COPY init.sh /
+# Copy required files to the image.
+COPY init.sh create_user.sql /
 
-RUN chmod 700 ./bootstrap.sh
+# Set permissions to execute scripts files.
+RUN chmod 700 ./bootstrap.sh ./create_user.sql
 
 CMD [ "bash", "./init.sh" ]

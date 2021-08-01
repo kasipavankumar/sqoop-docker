@@ -2,12 +2,12 @@ name: Deploy Docker image
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'sample-db']
 
     # Do not run when README gets updated
     paths-ignore:
       - '**/README.md'
-  
+
   # Can trigger action manually
   workflow_dispatch:
 
