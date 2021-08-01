@@ -30,7 +30,7 @@ RUN mv mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar $SQOOP_HOME/l
     && rm -rf mysql-connector-java-8.0.26
 
 # Download the commons lang
-RUN wget -qO- https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+RUN wget https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
 
 # Move it to Sqoop's lib
 RUN mv commons-lang-2.6.jar $SQOOP_HOME/lib
