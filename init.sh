@@ -1,6 +1,9 @@
 # Restart MySQL service.
 service mysql restart
 
+# Create a new user.
+mysql < create_user.sql
+
 # Switch to sample database directory &
 # load the database into MySQL.
 cd test_db-master \
