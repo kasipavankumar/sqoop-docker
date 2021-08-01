@@ -1,11 +1,6 @@
 # Restart MySQL service.
 service mysql restart
 
-# Download & unzip a sample database in MySQL.
-# https://dev.mysql.com/doc/employee/en/employees-installation.html
-wget https://github.com/datacharmer/test_db/archive/refs/heads/master.zip \
-&& unzip master.zip
-
 # Switch to sample database directory &
 # load the database into MySQL.
 cd test_db-master \
