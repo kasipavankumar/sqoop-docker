@@ -48,7 +48,7 @@ which should list around 5 files & using `cat` on any one of them should show fe
 
 <div align="center">
 
-[![Deploy Docker image](https://github.com/kasipavankumar/sqoop-docker/actions/workflows/build.yml/badge.svg)](https://github.com/kasipavankumar/sqoop-docker/actions/workflows/build.yml)
+[![Deploy Docker image](https://github.com/kasipavankumar/sqoop-docker/actions/workflows/deploy.yml/badge.svg)](https://github.com/kasipavankumar/sqoop-docker/actions/workflows/deploy.yml)
 
 </div>
 
