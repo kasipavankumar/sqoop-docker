@@ -12,14 +12,14 @@ A Docker image to play around with [Apache Sqoop](https://sqoop.apache.org) with
    To do so, execute:
 
 ```bash
-docker pull ghcr.io/kasipavankumar/sqoop-docker:main
+docker pull ghcr.io/kasipavankumar/sqoop-docker:latest
 ```
 
 6. After the image has been pulled into the VM, we need to start a new container & switch into it's terminal (mostly bash).
    To do so, execute:
 
 ```bash
-docker run -it ghcr.io/kasipavankumar/sqoop-docker:main
+docker run -it ghcr.io/kasipavankumar/sqoop-docker:latest
 ```
 
 _At this stage, the image will be booting up by executing all the required for running Sqoop._
