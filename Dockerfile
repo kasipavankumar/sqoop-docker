@@ -1,6 +1,6 @@
 # Use Hadoop as the base image.
 # Since Sqoop requires Hadoop to be running in the background.
-FROM ghcr.io/max-rocco/hadoop-docker:main
+FROM ghcr.io/kasipavankumar/hadoop-docker:latest
 
 # Set working directory to / (home).
 WORKDIR /
