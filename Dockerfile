@@ -1,5 +1,5 @@
 # Use Hadoop as the base image.
-# Since Sqoop required Hadoop to be running in the background.
+# Since Sqoop requires Hadoop to be running in the background.
 FROM ghcr.io/max-rocco/hadoop-docker:main
 
 # Set working directory to / (home).
@@ -30,10 +30,10 @@ RUN wget -qO- http://ftp.ntu.edu.tw/MySQL/Downloads/Connector-J/mysql-connector-
 RUN mv mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar $SQOOP_HOME/lib \
     && rm -rf mysql-connector-java-8.0.26
 
-# Download the commons lang
+# Download the commons lang.
 RUN wget https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
 
-# Move it to Sqoop's lib
+# Move commons lang to Sqoop's lib.
 RUN mv commons-lang-2.6.jar $SQOOP_HOME/lib
 
 # Download & unzip a sample database.
@@ -41,7 +41,7 @@ RUN mv commons-lang-2.6.jar $SQOOP_HOME/lib
 RUN wget https://github.com/datacharmer/test_db/archive/refs/heads/master.zip \
     && unzip master.zip
 
-# Rename sqoop-env-template.sh → sqoop-env.sh
+# Rename sqoop-env-template.sh → sqoop-env.sh.
 RUN mv $SQOOP_HOME/conf/sqoop-env-template.sh $SQOOP_HOME/conf/sqoop-env.sh
 
 # Edit Hadoop variables in "sqoop-env.sh".
