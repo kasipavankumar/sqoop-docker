@@ -1,8 +1,8 @@
 name: Deploy Docker image
 
 on:
-  push:
-    branches: ['main', 'sample-db']
+  release:
+    types: [published]
 
     # Do not run when README gets updated
     paths-ignore:
